@@ -203,6 +203,8 @@ services:
   elasticsearch:
     container_name: some-elasticsearch
     image: launcher.gcr.io/google/elasticsearch5
+    ports:
+      - '9200:9200'
 ```
 
 Or you can use `docker run` directly:
@@ -210,6 +212,7 @@ Or you can use `docker run` directly:
 ```shell
 docker run \
   --name some-elasticsearch \
+  -p 9200:9200 \
   -d \
   launcher.gcr.io/google/elasticsearch5
 ```
@@ -232,6 +235,8 @@ services:
   elasticsearch:
     container_name: some-elasticsearch
     image: launcher.gcr.io/google/elasticsearch5
+    ports:
+      - '9200:9200'
     volumes:
       - /path/to/your/elasticsearch/data:/usr/share/elasticsearch/data
 ```
@@ -241,6 +246,7 @@ Or you can use `docker run` directly:
 ```shell
 docker run \
   --name some-elasticsearch \
+  -p 9200:9200 \
   -v /path/to/your/elasticsearch/data:/usr/share/elasticsearch/data \
   -d \
   launcher.gcr.io/google/elasticsearch5
@@ -292,6 +298,8 @@ services:
   elasticsearch:
     container_name: some-elasticsearch
     image: launcher.gcr.io/google/elasticsearch5
+    ports:
+      - '9200:9200'
     volumes:
       - /path/to/your/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
 ```
@@ -301,6 +309,7 @@ Or you can use `docker run` directly:
 ```shell
 docker run \
   --name some-elasticsearch \
+  -p 9200:9200 \
   -v /path/to/your/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml \
   -d \
   launcher.gcr.io/google/elasticsearch5
